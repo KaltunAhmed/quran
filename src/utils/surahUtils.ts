@@ -6,7 +6,7 @@ const JuzAmma = {
 
 const numberOfSurahs = 4
 
-function generateRandomSurah(numberOfSurahs: number): Set<number> {
+function generateRandomSurahs(numberOfSurahs: number): Set<number> {
     const uniqueNumbers = new Set<number>()
 
     while (uniqueNumbers.size < numberOfSurahs){
@@ -17,7 +17,7 @@ function generateRandomSurah(numberOfSurahs: number): Set<number> {
 }
 
  
-function chooseOneSurahFromSet(uniqueNumbers: Set<number> ): number {
+function chooseOneSurahFromSet(uniqueNumbers: number[] ): number {
     const surahsArr = Array.from(uniqueNumbers)
 
     const randomIndex =  Math.floor(Math.random() * surahsArr.length);
@@ -28,7 +28,14 @@ function chooseOneSurahFromSet(uniqueNumbers: Set<number> ): number {
 
 }
 
+function chooseRandomAyahFromSurah(totalNumberOfAyahs: number): number {
+const randomAyah: number = Math.floor(Math.random() * totalNumberOfAyahs) + 1;
+
+return randomAyah
+}
+
 export  {
-    generateRandomSurah,
-    chooseOneSurahFromSet
+    generateRandomSurahs,
+    chooseOneSurahFromSet,
+    chooseRandomAyahFromSurah
 } 
