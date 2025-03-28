@@ -10,7 +10,7 @@ function generateRandomSurahs(numberOfSurahs: number): Set<number> {
     const uniqueNumbers = new Set<number>()
 
     while (uniqueNumbers.size < numberOfSurahs){
-        const randomSurah = Math.floor(Math.random() * (JuzAmma.startSurah - JuzAmma.endSurah + 1) + JuzAmma.endSurah);
+        const randomSurah = Math.floor(Math.random() * (JuzAmma.endSurah - JuzAmma.startSurah + 1) + JuzAmma.startSurah);
         uniqueNumbers.add(randomSurah)
     }
     return uniqueNumbers

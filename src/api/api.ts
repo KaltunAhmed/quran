@@ -1,7 +1,8 @@
+import { chooseRandomAyahFromSurah } from "../utils/surahUtils.ts";
 import axios from "axios";
 
 interface SurahData {
-    id: number;
+    number: number;
     arabicName: string;
     englishName: string;
     englishTranslationName: string;
@@ -31,14 +32,14 @@ export async function getSurahDetails(surahNumber: number, isChosen: boolean): P
         const data = await fetchSurahData(surahNumber)
 
         return {
-            id: data.number,
+            number: data.number,
             arabicName: data.name,
             englishName: data.englishName,
             englishTranslationName: data.englishNameTranslation,
             numberOfAyahs: data.numberOfAyahs,
             chosenSurah: isChosen,
             audioUrl: isChosen
-                ? data.ayahs[Math.floor(Math.random() * data.ayahs.length)].audio
+                ? data.ayahs[chooseRandomAyahFromSurah(data.numberOfAyahs)].audio
                 : null
         };
 
@@ -46,6 +47,5 @@ export async function getSurahDetails(surahNumber: number, isChosen: boolean): P
         console.error(`Failed to fetch surah ${surahNumber}:`, error);
         return null; // Ensures partial failure doesn't break execution
     }
-
 
 }
