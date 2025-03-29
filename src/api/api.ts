@@ -39,7 +39,7 @@ export async function getSurahDetails(surahNumber: number, isChosen: boolean): P
             numberOfAyahs: data.numberOfAyahs,
             chosenSurah: isChosen,
             audioUrl: isChosen
-                ? data.ayahs[chooseRandomAyahFromSurah(data.numberOfAyahs)].audio
+                ? data.ayahs[Math.floor(Math.random() * data.ayahs.length)].audio
                 : null
         };
 

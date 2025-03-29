@@ -19,9 +19,7 @@ export async function generateSurahData(numberOfSurahs: number): Promise<SurahDa
         getSurahDetails(surahNumber, surahNumber === randomlyChosenSurah)
     ))
 
-
     return surahDataList.filter((data): data is SurahData => data !== null);
-
 }
 
 generateSurahData(4).then((data) => {
